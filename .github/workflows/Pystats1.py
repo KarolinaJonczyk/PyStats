@@ -101,37 +101,54 @@ def quantiles(q_n, x:list)->float:
         if q_n == 4:
             return max(x)
 
-    
-assert mean([1,2,3]) == 2
-assert mean([1,2,3]) == 2.5, "False"
-assert mean([0])
-assert mean()
+def geom_mean(x:list)->float:
+    '''Geometric mean is defined as the n-th root of the product of n numbers'''
+    n = len(x)
+    result = 1
+    for i in range(n):
+        result *= x[i]
+    result = result**(1/n)
+    return result
 
-assert median([1,2,3,4]) == 2.5
-assert median([1,2,3,4]) == 2, "must be 2.5"
-assert median([1,2,3,4]) == 3, "must be 2.5"
-assert median([1,2,3]) == 2
-assert median([1,2,3]) == 2.5, "must be 2"
-assert median([]) 
 
-assert low_median([1,2,3,4]) == 3, "must be 2"
-assert low_median([1,2,3,4]) == 2.0
+def harmonic_mean(x:list)->float:
+    '''The harmonic mean is a numerical average calculated by dividing the number of observations
+    by the reciprocal of each number in the series'''
+    n = len(x)
+    result = 0
+    for i in range(n):
+        result += 1/(x[i])
+    result = n / result
+    return result
 
-assert high_median([1,2,3,4]) == 2, "must be 3"
-assert high_median([1,2,3,4]) == 3
 
-assert minimum([0,1,2,3]) == 1, 'must be 0'
-assert minimum([0,1,2,3]) == 0
+def generalized_mean(k, x:list)->float:
+    '''k = 2 quadratic mean
+       k = 0 geometric mean
+       k != {0,2} generalized mean with exponent k of real numbers'''
+    n = len(x)
+    if k == 0:
+        result=geom_mean(x)
+        return result
+    else:
+        result = 0
+        for i in range(n):
+            result += x[i]**k
+        result = (result/n)**k
+        return result
 
-assert maximum([0,1,2,3]) == 1, 'must be 3'
-assert maximum([0,1,2,3]) == 3
+def mode(x:list)->list:
+    '''Returns the most frequent element in the list 
+    in case of multiple dominants, it returns their list'''
+    counting = []
+    mode = []
+    for i in set(x):
+        num = x.count(i)
+        counting.append(num)
+        maximum = max(counting)
+        elements = list(set(x))
+    for i, count in enumerate(counting):
+        if count == maximum:
+            mode.append(elements[i])
 
-assert standard_deviation([2,1]) == 0.5
-assert standard_deviation([2,1]) == 1, 'bad solution, it\'s 0.5'
-
-assert variation([2,1]) == 0.5, 'bad solution, it\'s 0.25'
-assert variation([2,1]) == 0.25
-
-assert quantiles(1, [1,2,3,4]) == 1.5
-assert quantiles(1, [1,2,3,4]) == 1
-assert quantiles(5, [1,2,3,4]) == 4
+    return mode
