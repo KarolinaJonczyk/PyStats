@@ -152,3 +152,10 @@ def mode(x:list)->list:
             mode.append(elements[i])
 
     return mode
+
+def statistic_range(x:list)->float:
+    '''difference between the largest and smallest values from list'''
+    xmin = min(x)
+    xmax = max(x)
+    xrange = xmax - xmin
+    return xrange
