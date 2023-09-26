@@ -1,4 +1,4 @@
-import Pystats.py
+import Pystats1.py
 
 assert mean([1,2,3]) == 2
 assert mean([1,2,3]) == 2.5, "False"
