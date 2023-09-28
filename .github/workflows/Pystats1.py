@@ -168,6 +168,15 @@ def average_absolute_deviation(x:list)->float:
     s = 0
     for i in range(n):
         s += abs(x[i] - xmean)
-    avg_abs_mean = s/n
-    return avg_abs_mean
-    
+    avg_abs_dev = s/n
+    return avg_abs_dev
+
+def skewness_coef(x:list)->float:
+    '''skewnes coefficient is is a measure of the asymmetry of the probability 
+    distribution of a real-valued random variable about its mean.
+    The skewness value can be positive, zero, negative, or undefined.'''
+    if len(mode(x)) == 1:
+        skew = (mean(x) - mode(x)[0])/standard_deviation(x)
+        return skew
+    else:
+        skew = (mean(x) - mean(mode(x))) / standard_deviation(x)
