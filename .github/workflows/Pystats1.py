@@ -174,9 +174,59 @@ def average_absolute_deviation(x:list)->float:
 def skewness_coef(x:list)->float:
     '''skewnes coefficient is is a measure of the asymmetry of the probability 
     distribution of a real-valued random variable about its mean.
-    The skewness value can be positive, zero, negative, or undefined.'''
+    The skewness value can be positive, zero, negative, or undefined.
+    negative skew - left-skewed
+    zero - no skewness
+    positive skew - right-skewed'''
     if len(mode(x)) == 1:
         skew = (mean(x) - mode(x)[0])/standard_deviation(x)
-        return skew
     else:
         skew = (mean(x) - mean(mode(x))) / standard_deviation(x)
+    return skew
+
+def third_central_moment(x:list)->float:
+    '''according to the definition of the central moment, the sum of 
+    the third powers of deviations of the value of a statistical 
+    feature from the arithmetic mean value, divided by n
+    zero - symmetrical distribution
+    negative - left-skewed
+    positive - right-skewed'''
+    n = len(x)
+    m = mean(x)
+    s = 0
+    for i in range(n):
+        s += (x[i] - m)**3
+    s = s/n
+    return s
+
+def kurtosis(x:list)->float:
+    '''kurtosis is a measure of the "tailedness" of the probability
+    distribution of a real-valued random variable.
+    zero -  the excess kurtosis of any univariate normal distribution
+    positive - leptokurtic
+    negative - platykurtic'''
+    n = len(x)
+    s = 0
+    for i in range(n):
+        s+=(1/n) * (x[i] - mean(x))**4
+    return s/standard_deviation(x)
+
+def excess_kurtosis(x:list)->float:
+    '''The excess kurtosis is defined as kurtosis minus 3.
+    '''
+    xkurtosis = kurtosis(x)
+    ex_kurtosis = xkurtosis - 3
+    return ex_kurtosis
+
+def gini_coefficient(x:list)->float:
+    '''work in progress...
+    I need to read more about this method'''
+    n = len(x)
+    if x == sorted(x):
+        s = 0
+        for i in range(n):
+            s += (2*i - n -1)*x[i]
+        gini = s/(mean(x)*n**2)
+    #else/elif:...
+        return gini   
+
