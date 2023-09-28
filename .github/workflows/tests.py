@@ -52,3 +52,6 @@ assert statistic_range([1,2,3,4]) == 4
 
 assert average_absolute_deviation([1,2,3]) == 0.666666
 assert average_absolute_deviation([1,2,3]) == 0.6666666666666666
+
+assert skewness_coef([1,1,2]) == 1
+assert skewness_coef([1,1,2,2]) == 1
