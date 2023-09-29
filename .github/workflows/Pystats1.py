@@ -230,3 +230,13 @@ def gini_coefficient(x:list)->float:
     #else/elif:...
         return gini   
 
+def covariance(x:list, y:list)->float:
+    '''Covariance is a measure of the joint variability of two random variables.'''
+    n = len(x)
+    xmean = mean(x)
+    ymean = mean(y)
+    cov = 0
+    for i in range(n):
+        cov += (x[i] - xmean)*(y[i] - ymean)
+    cov = cov/n
+    return cov

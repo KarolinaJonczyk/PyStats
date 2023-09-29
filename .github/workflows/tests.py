@@ -67,3 +67,6 @@ assert excess_kurtosis([1,2]) == 2.875
 
 assert gini_coefficient([1,2,3,4]) == -0.25
 assert gini_coefficient([1,2,3,4]) == 0.25
+
+assert covariance([1,2,3], [2,3,5]) == 1.0
+assert covariance([1,2,3], [2,3,5]) == 0.1
