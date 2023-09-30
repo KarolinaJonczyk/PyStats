@@ -170,4 +170,6 @@ def average_absolute_deviation(x:list)->float:
         s += abs(x[i] - xmean)
     avg_abs_mean = s/n
     return avg_abs_mean
-    
+
+def testfunc():
+    pass
