@@ -52,3 +52,21 @@ assert statistic_range([1,2,3,4]) == 4
 
 assert average_absolute_deviation([1,2,3]) == 0.666666
 assert average_absolute_deviation([1,2,3]) == 0.6666666666666666
+
+assert skewness_coef([1,1,2]) == 1
+assert skewness_coef([1,1,2,2]) == 1
+
+assert third_central_moment([3,2,3,3,3,1]) == -0.5
+assert third_central_moment([3,2,3,3,3,1]) == 0.5
+
+assert kurtosis([1,2]) == 0.125
+assert kurtosis([1,2]) == -0.125
+
+assert excess_kurtosis([1,2]) == -2.875
+assert excess_kurtosis([1,2]) == 2.875
+
+assert gini_coefficient([1,2,3,4]) == -0.25
+assert gini_coefficient([1,2,3,4]) == 0.25
+
+assert covariance([1,2,3], [2,3,5]) == 1.0
+assert covariance([1,2,3], [2,3,5]) == 0.1
