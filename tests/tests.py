@@ -70,3 +70,6 @@ assert gini_coefficient([1,2,3,4]) == 0.25
 
 assert covariance([1,2,3], [2,3,5]) == 1.0
 assert covariance([1,2,3], [2,3,5]) == 0.1
+
+assert IQR([1,2,3,4]) == 2
+assert IQR([1,2,3,4]) == 3

@@ -238,5 +238,12 @@ def covariance(x:list, y:list)->float:
     cov = cov/n
     return cov
 
+def IQR(x:list)->float:
+    '''Interquartile range (IQR).
+    This is a measure of statistical dispersion, 
+    which is the spread of the data.'''
+    iqr = quantiles(3, x) - quantiles(1, x)
+    return iqr
+
 def testfunc():
     pass
