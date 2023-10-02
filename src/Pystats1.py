@@ -229,14 +229,19 @@ def gini_coefficient(x:list)->float:
 
 def covariance(x:list, y:list)->float:
     '''Covariance is a measure of the joint variability of two random variables.'''
-    n = len(x)
-    xmean = mean(x)
-    ymean = mean(y)
-    cov = 0
-    for i in range(n):
-        cov += (x[i] - xmean)*(y[i] - ymean)
-    cov = cov/n
-    return cov
+    if len(y) == len(x):
+        n = len(x)
+        xmean = mean(x)
+        ymean = mean(y)
+        cov = 0
+        for i in range(n):
+            cov += (x[i] - xmean)*(y[i] - ymean)
+        cov = cov/n
+        return cov
+    if len(y) <2 or len(x) <2:
+        raise TypeError("define more than one element in x and y lists")
+    else:
+        raise TypeError("x and y should be same length")
 
 def IQR(x:list)->float:
     '''Interquartile range (IQR).
