@@ -1,8 +1,8 @@
 def mean(x: list)->float:
     """"arithmetic mean (average) of list
     adding all elements and divide by umber of elements"""
-    if len(x) <= 1:
-        raise TypeError("mean need more than one element")
+    if len(x) < 1:
+        raise TypeError("mean need more at least one element")
     else: 
         sum_of_elements =sum(x)
         mean_value = sum_of_elements/len(x)
