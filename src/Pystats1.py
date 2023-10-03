@@ -2,7 +2,7 @@ def mean(x: list)->float:
     """"arithmetic mean (average) of list
     adding all elements and divide by umber of elements"""
     if len(x) < 1:
-        raise TypeError("mean need more at least one element")
+        raise TypeError("mean need at least one element")
     else: 
         sum_of_elements =sum(x)
         mean_value = sum_of_elements/len(x)
@@ -16,7 +16,7 @@ def median(x:list)->float:
     x = sorted(x)
     n = len(x)
     if n == 0:
-        return TypeError("mean not exist")
+        raise TypeError("median not exist")
     if n%2 == 1:
         return x[n//2]
     else:
@@ -29,7 +29,7 @@ def low_median(x:list)->float:
     x = sorted(x)
     n = len(x)
     if n == 0:
-        return TypeError("mean not exist")
+        raise TypeError("low median not exist")
     if n%2 == 1:
         return x[n//2]
     else:
@@ -42,7 +42,7 @@ def high_median(x:list)->float:
     x = sorted(x)
     n = len(x)
     if n == 0:
-        return TypeError("mean not exist")
+        raise TypeError("high median not exist")
     else:
         return x[n//2]
 
@@ -54,10 +54,13 @@ def standard_deviation(x:list)->float:
     mean_x = mean(x)
     n = len(x)
     s=0
-    for i in x:
-        s += (x[i-1] - mean_x)**2
-    sd = (s/n)**0.5
-    return sd
+    if n<2:
+        raise TypeError('standard deviation need more than one element')
+    else: 
+        for i in range(n):
+            s += (x[i-1] - mean_x)**2
+        sd = (s/n)**0.5
+        return sd
 
 def variation(x:list)-> float:
     """returns square of standard deviation of numeric data"""
@@ -73,7 +76,7 @@ def quantiles(q_n, x:list)->float:
     x = sorted(x)
     n = len(x)
     if q_n not in [1,2,3,4]:
-        return TypeError("choose only 1, 2, 3 or 4 quartile")
+        raise TypeError("choose only 1, 2, 3 or 4 quartile")
     else:
         if q_n == 1:
             end = int(n*0.5)
@@ -92,6 +95,8 @@ def quantiles(q_n, x:list)->float:
 def geometric_mean(x:list)->float:
     '''Geometric mean is defined as the n-th root of the product of n numbers'''
     n = len(x)
+    if len(x) < 1:
+        raise TypeError("geometric mean need at least one element")
     result = 1
     for i in range(n):
         result *= x[i]
@@ -103,6 +108,8 @@ def harmonic_mean(x:list)->float:
     '''The harmonic mean is a numerical average calculated by dividing the number of observations
     by the reciprocal of each number in the series'''
     n = len(x)
+    if len(x) < 1:
+        raise TypeError("harmonic mean need at least one element")
     result = 0
     for i in range(n):
         result += 1/(x[i])
@@ -115,6 +122,8 @@ def generalized_mean(k, x:list)->float:
        k = 0 geometric mean
        k != {0,2} generalized mean with exponent k of real numbers'''
     n = len(x)
+    if len(x) < 1:
+        raise TypeError("generalized mean need at least one element")
     if k == 0:
         result=geom_mean(x)
     else:
@@ -141,6 +150,8 @@ def mode(x:list)->list:
 
 def statistic_range(x:list)->float:
     '''difference between the largest and smallest values from list'''
+    if len(x) < 2:
+        raise TypeError('statistic range need at least two elements in list')
     xmin = min(x)
     xmax = max(x)
     xrange = xmax - xmin
