@@ -18,12 +18,6 @@ assert low_median([1,2,3,4]) == 2.0
 assert high_median([1,2,3,4]) == 2, "must be 3"
 assert high_median([1,2,3,4]) == 3
 
-assert minimum([0,1,2,3]) == 1, 'must be 0'
-assert minimum([0,1,2,3]) == 0
-
-assert maximum([0,1,2,3]) == 1, 'must be 3'
-assert maximum([0,1,2,3]) == 3
-
 assert standard_deviation([2,1]) == 0.5
 assert standard_deviation([2,1]) == 1, 'bad solution, it\'s 0.5'
 

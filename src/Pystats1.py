@@ -45,17 +45,6 @@ def high_median(x:list)->float:
         return TypeError("mean not exist")
     else:
         return x[n//2]
-    
-def minimum(x:list)->float:
-    """returns the smallest number in the list"""
-    x = sorted(x)
-    return x[0]
-
-def maximum(x:list)->float:
-    """returns the largest number in the list"""
-    x = sorted(x)
-    n = len(x)
-    return x[n-1]
 
 def standard_deviation(x:list)->float:
     """returns standard deviation of numeric data
