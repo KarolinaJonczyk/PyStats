@@ -91,6 +91,29 @@ def quantiles(q_n, x:list)->float:
             return median(x)
         if q_n == 4:
             return max(x)
+        
+def percentiles(percentile, x:list)->float:
+    '''Percentile is the value below which the values of a given percentage of samples fall.
+    percentile = 25, 50, 75,100 is 1st, 2nd, 3rd and 4th quartile.
+    percentile = 10,20,30,40,50,60,70,80,90,100 is 1st, 2nd, 3rd
+    4th, 5th, 6th, 7th, 8th, 9th and 10th decile.'''
+    x = sorted(x)
+    n = len(x)
+    if percentile <1 or percentile >100:
+        raise TypeError("percentile should be in range 1-100")
+    if n<0:
+        raise TypeError("list cannot be empty")
+    location = percentile*(n+1)/100 
+    if int(location) == location:
+        return x[int(location)-1]
+    else: 
+        down = floor(location)
+        up = ceil(location)
+        if down == 0:
+            return x[up]
+        else:
+            even = mean([x[down-1], x[up-1]])
+            return even
 
 def geometric_mean(x:list)->float:
     '''Geometric mean is defined as the n-th root of the product of n numbers'''

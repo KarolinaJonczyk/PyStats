@@ -28,6 +28,9 @@ assert quantiles(1, [1,2,3,4]) == 1.5
 assert quantiles(1, [1,2,3,4]) == 1
 assert quantiles(5, [1,2,3,4]) == 4
 
+assert percentiles(2, [1,1,2,3,4,12,13,14,20,21]) == 0
+assert percentiles(2, [1,1,2,3,4,12,13,14,20,21]) == 1
+
 assert geom_mean([2,2,2]) == 2
 assert geom_mean([2,2,2]) == 3
 
