@@ -94,7 +94,7 @@ def quantiles(q_n, x:list)->float:
         
 def percentiles(percentile, x:list)->float:
     '''Percentile is the value below which the values of a given percentage of samples fall.
-    percentile = 25, 50, 75,100 is 1st, 2nd, 3rd and 4th quartile.
+    percentile = 25, 50, 75,100 is 1st, 2nd, 3rd and 4th quantile.
     percentile = 10,20,30,40,50,60,70,80,90,100 is 1st, 2nd, 3rd
     4th, 5th, 6th, 7th, 8th, 9th and 10th decile.'''
     x = sorted(x)
