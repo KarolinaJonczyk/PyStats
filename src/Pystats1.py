@@ -136,6 +136,8 @@ def generalized_mean(k, x:list)->float:
 def mode(x:list)->list:
     '''Returns the most frequent element in the list 
     in case of multiple dominants, it returns their list'''
+    if len(x) <1:
+        raise TypeError('mode not exist for empty list')
     counting = []
     mode = []
     for i in set(x):
@@ -147,6 +149,18 @@ def mode(x:list)->list:
         if count == maximum:
             mode.append(elements[i])
     return mode
+
+def multimode(x:list)->list:
+    '''Returns the most frequent element in the list 
+    in case of multiple dominants, it returns their list.
+    This method split string of letters to single letters.'''
+    xsplit = []
+    for element in x:
+        if isinstance(element, str):
+            xsplit.extend(list(element))
+        else:
+            xsplit.append(element)
+    return mode(xsplit)
 
 def statistic_range(x:list)->float:
     '''difference between the largest and smallest values from list'''

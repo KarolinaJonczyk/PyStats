@@ -40,6 +40,11 @@ assert generalized_mean(2, [1,2]) == 6.25000001
 assert mode([9,7, 1, 7, 9, 2, 9, 7, 3, 0]) == [7,9]
 assert mode([7, 1, 7, 9, 2, 7, 3, 0]) == [7]
 assert mode([7, 1, 7, 9, 2, 7, 3, 0]) == 7
+assert mode([]) == 0
+
+assert multimode([1,2,3,3,4, 'ooo',3, 'o', 3, 'kk', 'kk']) == [3, 'o', 'k']
+assert multimode([1,2,3,3,4, 'ooo', 3, 'o', 3, 'kk', 'kk']) == [3, 'ok']
+assert multimode([]) == [0]
 
 assert statistic_range([1,2,3,4]) == 3
 assert statistic_range([1,2,3,4]) == 4
